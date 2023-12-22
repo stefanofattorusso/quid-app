@@ -1,4 +1,4 @@
-name: Test and Build before merge
+name: Android CI
 
 env:
   main_project_module: app

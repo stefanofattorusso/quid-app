@@ -1,4 +1,4 @@
-name: Build and Generated Debug APK
+name: Android Deploy
 
 env:
   main_project_module: app
