@@ -1,11 +1,33 @@
-import extension.defaultSetup
+import extension.*
 
 plugins {
     id("com.android.application")
-    kotlin("android")
-    id("kotlin-conventions")
+    id("org.jetbrains.kotlin.plugin.compose")
 }
 
+val catalog = project.libs
+
 android {
-    defaultSetup()
+    compileSdk = catalog.sdkCompile
+
+    defaultConfig {
+        minSdk = catalog.sdkMin
+        targetSdk = catalog.sdkTarget
+
+        testInstrumentationRunner = "androidx.test.runner.AndroidJUnitRunner"
+
+    }
+
+    compileOptions {
+        targetCompatibility = catalog.targetCompatibility
+        sourceCompatibility = catalog.sourceCompatibility
+    }
+
+    packaging {
+        resources {
+            excludes.add("META-INF/LICENSE.md")
+            excludes.add("META-INF/LICENSE-notice.md")
+            excludes.add("META-INF/*.kotlin_module")
+        }
+    }
 }

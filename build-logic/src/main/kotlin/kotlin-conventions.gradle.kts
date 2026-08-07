@@ -12,7 +12,7 @@ tasks.withType<KotlinCompile> {
                 "-Xcontext-receivers",
             ),
         )
-        languageVersion.set(KotlinVersion.KOTLIN_1_9)
-        apiVersion.set(KotlinVersion.KOTLIN_1_9)
+        languageVersion.set(KotlinVersion.KOTLIN_2_1)
+        apiVersion.set(KotlinVersion.KOTLIN_2_1)
     }
 }

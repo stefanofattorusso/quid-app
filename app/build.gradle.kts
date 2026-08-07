@@ -1,9 +1,6 @@
 
 plugins {
-    alias(libs.plugins.androidApplication)
-    alias(libs.plugins.jetbrainsKotlinAndroid)
-    id("android-application-conventions")
-    id("kotlin-conventions")
+    alias(libs.plugins.android.application.conventions)
 }
 
 android {
@@ -11,8 +8,6 @@ android {
 
     defaultConfig {
         applicationId = "com.quid.quidapp"
-        versionCode = AppConfig.VERSION_CODE
-        versionName = AppConfig.VERSION_NAME
     }
 
     buildTypes {
@@ -29,6 +24,7 @@ dependencies {
 
     implementation(libs.androidx.core.ktx)
     implementation(libs.androidx.lifecycle.runtime.ktx)
+
     testImplementation(libs.junit)
     androidTestImplementation(libs.androidx.junit)
     androidTestImplementation(libs.androidx.espresso.core)

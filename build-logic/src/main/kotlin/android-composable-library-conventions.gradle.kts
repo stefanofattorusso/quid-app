@@ -1,31 +1,22 @@
-import extension.libAndroidxComposeActivity
-import extension.libAndroidxComposeBom
-//import extension.libAndroidxComposeCompiler
-//import extension.libAndroidxComposeFoundation
-import extension.libAndroidxComposeMaterial3
-import extension.libAndroidxComposeUiTooling
-import extension.libAndroidxComposeUiToolingPreview
-import extension.libs
-import extension.versionKotlinCompiler
+import extension.*
 
 plugins {
     id("android-library-conventions")
+    id("org.jetbrains.kotlin.plugin.compose")
 }
+
+val catalog = project.libs
 
 android {
 
     buildFeatures.compose = true
-
-    composeOptions.kotlinCompilerExtensionVersion = libs.versionKotlinCompiler
 }
 
 dependencies {
-    implementation(platform(libs.libAndroidxComposeBom))
-//    implementation(libs.libAndroidxComposeFoundation)
-//    implementation(libs.libAndroidxComposeCompiler)
-    implementation(libs.libAndroidxComposeMaterial3)
-    implementation(libs.libAndroidxComposeUiToolingPreview)
-    implementation(libs.libAndroidxComposeActivity)
+    implementation(platform(catalog.libAndroidxComposeBom))
+    implementation(catalog.libAndroidxComposeMaterial3)
+    implementation(catalog.libAndroidxComposeUiToolingPreview)
+    implementation(catalog.libAndroidxComposeActivity)
 
-    debugImplementation(libs.libAndroidxComposeUiTooling)
+    debugImplementation(catalog.libAndroidxComposeUiTooling)
 }

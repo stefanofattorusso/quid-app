@@ -1,15 +1,15 @@
 package extension
 
-import AppConfig
-import com.android.build.gradle.internal.dsl.BaseAppModuleExtension
+import com.android.build.api.dsl.ApplicationExtension
 import org.gradle.api.JavaVersion
+import org.gradle.api.artifacts.VersionCatalog
 
-fun BaseAppModuleExtension.defaultSetup() {
-    compileSdk = AppConfig.COMPILE_SDK
+fun ApplicationExtension.defaultSetup(libs: VersionCatalog) {
+    compileSdk = libs.sdkCompile
 
     defaultConfig {
-        minSdk = AppConfig.MIN_SDK
-        targetSdk = AppConfig.TARGET_SDK
+        minSdk = libs.sdkMin
+        targetSdk = libs.sdkTarget
 
         testInstrumentationRunner = "androidx.test.runner.AndroidJUnitRunner"
 

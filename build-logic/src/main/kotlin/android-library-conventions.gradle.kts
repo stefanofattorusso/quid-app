@@ -1,26 +1,22 @@
+import extension.*
+
 plugins {
     id("com.android.library")
-    kotlin("android")
     id("kotlin-conventions")
 }
 
-android {
+val catalog = project.libs
 
-    compileSdk = AppConfig.COMPILE_SDK
+android {
+    compileSdk = catalog.sdkCompile
 
     defaultConfig {
-        minSdk = AppConfig.MIN_SDK
-
-        testInstrumentationRunner = "androidx.test.runner.AndroidJUnitRunner"
-
-        vectorDrawables {
-            useSupportLibrary = true
-        }
+        minSdk = catalog.sdkMin
     }
 
     compileOptions {
-        targetCompatibility = JavaVersion.VERSION_17
-        sourceCompatibility = JavaVersion.VERSION_17
+        targetCompatibility = catalog.targetCompatibility
+        sourceCompatibility = catalog.sourceCompatibility
     }
 
     packaging {

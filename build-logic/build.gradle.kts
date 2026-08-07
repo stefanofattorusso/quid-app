@@ -1,20 +1,15 @@
 plugins {
     `kotlin-dsl`
-    `kotlin-dsl-precompiled-script-plugins`
 }
 
-repositories {
-    google()
-    mavenCentral()
-    gradlePluginPortal()
-}
 
 java {
-    sourceCompatibility = JavaVersion.VERSION_17
-    targetCompatibility = JavaVersion.VERSION_17
+    sourceCompatibility = JavaVersion.toVersion(libs.versions.sourceCompatibility.get())
+    targetCompatibility = JavaVersion.toVersion(libs.versions.targetCompatibility.get())
 }
 
 dependencies {
-    implementation(libs.kotlin.gradlePlugin)
-    implementation(libs.android.gradlePlugin)
+    compileOnly(libs.android.gradlePlugin)
+    compileOnly(libs.kotlin.gradlePlugin)
+    compileOnly(libs.compose.compiler.gradlePlugin)
 }
