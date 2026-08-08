@@ -1,10 +1,11 @@
-
 plugins {
-    alias(libs.plugins.android.application.conventions)
+    alias(libs.plugins.android.composable.application.conventions)
+    alias(libs.plugins.hilt)
+    alias(libs.plugins.ksp)
 }
 
 android {
-    namespace = "com.quid.quidapp"
+    namespace = "com.quid.app"
 
     defaultConfig {
         applicationId = "com.quid.quidapp"
@@ -20,10 +21,16 @@ android {
 
 dependencies {
 
+    implementation(project(":common:ui"))
     implementation(project(":feature:home"))
 
-    implementation(libs.androidx.core.ktx)
     implementation(libs.androidx.lifecycle.runtime.ktx)
+    implementation(libs.androidx.activity.compose)
+    implementation(libs.androidx.navigation.compose)
+    implementation(libs.androidx.compose.material.icons.extended)
+    implementation(libs.hilt)
+    ksp(libs.hilt.compiler)
+
 
     testImplementation(libs.junit)
     androidTestImplementation(libs.androidx.junit)

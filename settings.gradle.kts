@@ -19,3 +19,5 @@ rootProject.name = "QuidApp"
 include(":app")
 include(":feature:home")
 include(":common:ui")
+include(":core:data")
+include(":core:domain")

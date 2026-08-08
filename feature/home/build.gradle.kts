@@ -1,5 +1,5 @@
 plugins {
-    id("android-composable-library-conventions")
+    alias(libs.plugins.android.composable.library.conventions)
 }
 
 android {
@@ -11,7 +11,6 @@ dependencies {
     implementation(project(":common:ui"))
 
     implementation(libs.androidx.core.ktx)
-    implementation(libs.androidx.appcompat)
 
     testImplementation(libs.junit)
     androidTestImplementation(libs.androidx.junit)
